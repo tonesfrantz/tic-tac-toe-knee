@@ -9,4 +9,4 @@
 ## Planning
 
 -   Here's the planning
--   ![mock_up](tic-tac-toe-knee/tic-tac-toe-knee.jpg)
+-   ![mock_up](mock_up.jpg)
