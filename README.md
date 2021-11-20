@@ -2,9 +2,11 @@
 
 ## Tech Used
 
-- HTML
+-   HTML
+-   JavaScript
+-   CSS Styling.
 
 ## Planning
 
-- Here's the planning
-- ![alt text](./image-in-thi-repo)
+-   Here's the planning
+-   ![mock_up](tic-tac-toe-knee/tic-tac-toe-knee.jpg)
