@@ -24,14 +24,29 @@
     -   git commited as "toggle"
 
 -   Assign either X or O to player 1 and 2.
+
+    -   git commited as "toggle"
+
 -   Keep track of which tile has X or O.
+
+    -   git commited as "toggle"
+
 -   stop tile from being clicked twice.
+
+    -   git commited as "toggle"
+
 -   compare 3 in a row to compare for a win.
+
+        - managed to compare 3 in a row, but a few bugs. Will have to rethink the logic.
+        - got commit "three in a row"
+
 -   End game once winner is reached
 -   Reset game.
 
 4. Look at Bonus material
 
+-   Add player name and functional button.
+-
 -   Create multiple game score board
 -   Allow option to input time limit.
 -   Add web audio and API sounds
