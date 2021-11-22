@@ -47,6 +47,11 @@ main {
     line-height: 450%;
 }
 
+.in_play {
+    background-color: rgb(226, 98, 98);
+    transform: scale(1.1);
+}
+
 #play_field {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -55,6 +60,9 @@ main {
     align-items: center;
 }
 
+.played {
+    background-color: rgb(61, 191, 243);
+}
 .curved_box {
     border: 8px double grey;
     border-radius: 5px;
@@ -64,6 +72,7 @@ main {
 }
 input {
     font-size: small;
+    width: 130px;
 }
 
 footer {

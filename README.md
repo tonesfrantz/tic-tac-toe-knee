@@ -20,6 +20,9 @@
 3.  Tackle individual funcitonality problems and map out what needs solving:
 
 -   create click event to change from blank to assigned player.
+
+    -   git commited as "toggle"
+
 -   Assign either X or O to player 1 and 2.
 -   Keep track of which tile has X or O.
 -   stop tile from being clicked twice.

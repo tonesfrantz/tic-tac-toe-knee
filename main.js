@@ -2,6 +2,10 @@ let player_1 = '';
 let player_2 = '';
 let player1 = 'X';
 let player2 = 'O';
+let turns = 0;
+
+//storing the play in this array and then writing function to compare the array for wins.
+const grid = [null, null, null, null, null, null, null, null, null];
 
 // create event to change from blank to assigned.
 
@@ -9,29 +13,47 @@ let button = document.getElementById('play_field');
 let player_1_turn = document.getElementById('player_1');
 let player_2_turn = document.getElementById('player_2');
 
-for (i = 0; i < 9; i++) {
-    console.log([i]);
-    // player_1_turn.style.backgroundColor = 'red';
-    // button.addEventListener('click', function (event) {
-    //     if (event.target != document.getElementsByClassName('knot played')) {
-    //         event.target.classList.add('cross', 'played');
-    //         event.target.textContent = player1;
-    //         player_1_turn.style.backgroundColor = '';
-    //         player_2_turn.style.backgroundColor = 'red';
-    //         return;
-    //     } else if (event.target != document.getElementsByClassName('played')) {
-    //         event.target.classList.add('knot', 'played');
-    //         console.log(event.target.classList);
-    //         player_2_turn.style.backgroundColor = '';
-    //         player_1_turn.style.backgroundColor = 'red';
-    //         return;
-    //     } else {
-    //         alert('You must play in a blank field');
-    //     }
-
-    //     // console.log(event.target);
-    // });
+function inPlayToggleX() {
+    var x = player_1_turn;
+    x.classList.toggle('in_play');
+    console.log('inPlayToggleX');
 }
 
-// ther eshould be the loop for 9 turns.
-//wiht-in each loop of x there should be the two function that execture.
+function inPlayToggleO() {
+    var o = player_2_turn;
+    o.classList.toggle('in_play');
+    console.log('inPlayToggleO');
+}
+// Creating a toggle between player 1 and player 2 class.
+// Each event once the class has been toggled will change where the points go and
+
+button.addEventListener('click', function (event) {
+    if (event.target == button) {
+        alert('you must click tile');
+        console.log('you must click tile');
+        return;
+    }
+    if (player_1_turn == document.querySelector('.in_play')) {
+        console.log('inside if');
+        event.target.textContent = 'X';
+        event.target.classList.add('played', 'cross');
+        inPlayToggleX();
+        inPlayToggleO();
+        console.log('finished first if Statement');
+        turns++;
+    }
+    // event.target !== document.getElementsByClassName('played' || 'cross')
+    else if (
+        document.getElementById('player_2') ==
+        document.querySelector('.in_play')
+    ) {
+        event.target.textContent = 'O';
+        console.log(typeof event);
+        event.target.classList.add('played', 'knot');
+        inPlayToggleX();
+        inPlayToggleO();
+        console.log('player_2 O');
+        turns++;
+    }
+    console.log(event.target);
+});
