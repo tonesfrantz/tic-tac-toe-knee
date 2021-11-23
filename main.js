@@ -10,6 +10,14 @@ const winX = ['x', 'x', 'x'];
 const winO = ['o', 'o', 'o'];
 const winXString = JSON.stringify(winX);
 const winOString = JSON.stringify(winO);
+let tile = document.getElementById('play_field');
+let player_1_turn = document.getElementById('player_1');
+let player_2_turn = document.getElementById('player_2');
+const resetButton = document.getElementById('reset');
+
+// resetButton.addEventListener('click', function reset() {
+//     console.log('reset clicked');
+// });
 
 function checkWins() {
     let firstRow = grid.slice(0, 3);
@@ -81,9 +89,12 @@ function checkWins() {
         winXString === firstRowString ||
         winXString === secondRowString ||
         winXString === thirdRowString ||
-        winXString === diagTopRightBotLeftString
+        winXString === diagTopRightBotLeftString ||
+        winXString === diagTopLeftBotRightString
     ) {
+        tile.classList.add('delayed');
         alert(`Congratulations ${player_1}! You got three in a row!`);
+        document.location.href = '';
     } else if (
         winOString === column1String ||
         winOString === column2String ||
@@ -94,14 +105,13 @@ function checkWins() {
         winOString === diagTopLeftBotRightString ||
         winOString === diagTopRightBotLeftString
     ) {
+        tile.classList.add('delayed');
         alert(`Congratulations ${player_2}! You got three in a row!`);
+        document.location.href = '';
     }
 }
 
 // create event to change from blank to assigned.
-let tile = document.getElementById('play_field');
-let player_1_turn = document.getElementById('player_1');
-let player_2_turn = document.getElementById('player_2');
 
 // //function to submit name - complete
 // const button = document.
@@ -126,8 +136,19 @@ tile.addEventListener('click', function (event) {
         console.log('tile not clicked');
         return;
     }
+    // This is where you edit player 1 and 2 input for play.
+
+    if (event.target.textContent == 'X') {
+        alert('This tile has already been used by player 1');
+        console.log('already played');
+        return;
+    }
+    if (event.target.textContent == 'O') {
+        alert('This tile has already been used by player 2');
+        console.log('already played');
+        return;
+    }
     if (player_1_turn == document.querySelector('.in_play')) {
-        console.log('inside if');
         let position = event.target.getAttribute('Id');
         console.log(position);
         grid[position - 1] = 'x';
@@ -140,10 +161,7 @@ tile.addEventListener('click', function (event) {
         checkWins();
     }
     // event.target !== document.getElementsByClassName('played' || 'cross')
-    else if (
-        document.getElementById('player_2') ==
-        document.querySelector('.in_play')
-    ) {
+    else if (player_2_turn == document.querySelector('.in_play')) {
         let position = event.target.getAttribute('Id');
         console.log(position);
         grid[position - 1] = 'o';
@@ -152,7 +170,6 @@ tile.addEventListener('click', function (event) {
         event.target.classList.add('played', 'knot');
         inPlayToggleX();
         inPlayToggleO();
-        console.log('finished second if statement');
         turns++;
         checkWins();
     }

@@ -45,6 +45,9 @@
 -   End game once winner is reached - managed to complete that the game wins. Now need to make sure only one player per tile: - git commit " three in a rowComplete";
 
 -   Reset game.
+    -the reset complete. Need to have delay on completeing it, so we can see the final tile color.
+
+        -Also; need to figure out the diagonal top left to bottom right.
 
 4. Look at Bonus material
 

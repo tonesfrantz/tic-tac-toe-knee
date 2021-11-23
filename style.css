@@ -63,6 +63,11 @@ main {
 .played {
     background-color: rgb(61, 191, 243);
 }
+
+.delayed {
+    transition-delay: 3s;
+}
+
 .curved_box {
     border: 8px double grey;
     border-radius: 5px;
@@ -77,4 +82,9 @@ input {
 
 footer {
     text-align: center;
+}
+
+#reset {
+    position: absolute;
+    left: 1.5em;
 }
