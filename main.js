@@ -136,18 +136,13 @@ tile.addEventListener('click', function (event) {
         console.log('tile not clicked');
         return;
     }
-    // This is where you edit player 1 and 2 input for play.
 
-    if (event.target.textContent == 'X') {
-        alert('This tile has already been used by player 1');
+    if (event.target.classList.contains('played')) {
+        alert('This tile has already been played');
         console.log('already played');
         return;
     }
-    if (event.target.textContent == 'O') {
-        alert('This tile has already been used by player 2');
-        console.log('already played');
-        return;
-    }
+
     if (player_1_turn == document.querySelector('.in_play')) {
         let position = event.target.getAttribute('Id');
         console.log(position);
