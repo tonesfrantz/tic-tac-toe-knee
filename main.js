@@ -14,10 +14,15 @@ let tile = document.getElementById('play_field');
 let player_1_turn = document.getElementById('player_1');
 let player_2_turn = document.getElementById('player_2');
 const resetButton = document.getElementById('reset');
+// resetButton.addEventListener('click')
+// console.log(resetButton);
+// // resetButton.addEventListener('click', function reset() {
+// //     console.log('reset clicked');
+// // });
 
-// resetButton.addEventListener('click', function reset() {
-//     console.log('reset clicked');
-// });
+function reset() {
+    document.location.href = '';
+}
 
 function checkWins() {
     let firstRow = grid.slice(0, 3);

@@ -45,6 +45,7 @@ main {
     text-align: center;
     margin: 1em;
     line-height: 450%;
+    /* border-radius: 50px; */
 }
 
 .in_play {
@@ -77,7 +78,12 @@ main {
 }
 input {
     font-size: small;
+    border-radius: 5px;
     width: 130px;
+}
+
+button {
+    border-radius: 5px;
 }
 
 footer {
