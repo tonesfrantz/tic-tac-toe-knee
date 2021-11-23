@@ -38,7 +38,8 @@
 -   compare 3 in a row to compare for a win.
 
         - managed to compare 3 in a row, but a few bugs. Will have to rethink the logic.
-        - got commit "three in a row"
+        - git commit "three in a row"
+        - git commit "three in a rowUpdate"
 
 -   End game once winner is reached
 -   Reset game.

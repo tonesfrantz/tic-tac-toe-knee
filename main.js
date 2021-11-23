@@ -6,26 +6,70 @@ let turns = 0;
 
 //storing the play in this array and then writing function to compare the array for wins.
 const grid = [null, null, null, null, null, null, null, null, null];
+const winX = ['x', 'x', 'x'];
+const winO = ['o', 'o', 'o'];
 
 function checkWins() {
-    if ((grid[0] === grid[1]) === grid[2]) {
-        alert('Congratulations! YOU WIN!!!');
-    } else if ((grid[3] === grid[4]) === grid[5]) {
-        alert('Congratulations! YOU WIN!!!');
-    } else if ((grid[6] === grid[7]) === grid[8]) {
-        alert('Congratulations! YOU WIN!!!');
-    } else if ((grid[0] === grid[4]) === grid[8]) {
-        alert('Congratulations! YOU WIN!!!');
-    } else if ((grid[2] === grid[4]) === grid[6]) {
-        alert('Congratulations! YOU WIN!!!');
-    } else if ((grid[0] === grid[3]) === grid[6]) {
-        alert('Congratulations! YOU WIN!!!');
-    } else if ((grid[1] === grid[4]) === grid[7]) {
-        alert('Congratulations! YOU WIN!!!');
-    } else if ((grid[2] === grid[5]) === grid[8]) {
-        alert('Congratulations! YOU WIN!!!');
-        return;
-    }
+    let firstRow = grid.slice(0, 3);
+    console.log(firstRow);
+    let secondRow = grid.slice(3, 6);
+    console.log(secondRow);
+    let thirdRow = grid.slice(6, 9);
+    console.log(thirdRow);
+
+    let array0 = grid.slice(0, 1);
+    console.log(array0);
+    let array1 = grid.slice(1, 2);
+    console.log(array1);
+    let array2 = grid.slice(2, 3);
+    console.log(array2);
+    let array3 = grid.slice(3, 4);
+    console.log(array3);
+    let array4 = grid.slice(4, 5);
+    console.log(array4);
+    let array5 = grid.slice(5, 6);
+    console.log(array5);
+    let array6 = grid.slice(6, 7);
+    console.log(array6);
+    let array7 = grid.slice(7, 8);
+    console.log(array7);
+    let array8 = grid.slice(8, 9);
+    console.log(array8);
+
+    let column1 = array0.concat(array3, array6);
+    console.log(column1);
+    let column2 = array1.concat(array4, array7);
+    console.log(column2);
+    let column3 = array2.concat(array5, array8);
+    console.log(column3);
+
+    let diagTopLeftBotRight = array0.concat(array4, array8);
+    console.log(diagTopLeftBotRight);
+    let diagTopRightBotLeft = array2.concat(array4, array6);
+    console.log(diagTopRightBotLeft);
+
+    let column1String = JSON.stringify(column1);
+    console.log(`column1 ${column1String}`);
+    let column2String = JSON.stringify(column2);
+    console.log(`column2 ${column2String}`);
+    let column3String = JSON.stringify(column3);
+    console.log(`column3 ${column3String}`);
+
+    let firstRowString = JSON.stringify(firstRow);
+    console.log(`firstRow ${firstRowString}`);
+    let secondRowString = JSON.stringify(secondRow);
+    console.log(`secondRow ${secondRowString}`);
+    let thirdRowString = JSON.stringify(thirdRow);
+    console.log(`thirdRow ${thirdRowString}`);
+
+    let diagTopLeftBotRightString = JSON.stringify(diagTopLeftBotRight);
+    console.log(
+        `diagonal top left to bottom right ${diagTopLeftBotRightString}`
+    );
+    let diagTopRightBotLeftString = JSON.stringify(diagTopRightBotLeft);
+    console.log(
+        `diagonal top right to bottom left ${diagTopRightBotLeftString}`
+    );
 }
 
 // create event to change from blank to assigned.
@@ -40,14 +84,12 @@ let player_2_turn = document.getElementById('player_2');
 function inPlayToggleX() {
     var x = player_1_turn;
     x.classList.toggle('in_play');
-    console.log('inPlayToggleX');
 }
 
 // toggle for O (player 2)
 function inPlayToggleO() {
     var o = player_2_turn;
     o.classList.toggle('in_play');
-    console.log('inPlayToggleO');
 }
 // Creating a toggle between player 1 and player 2 class.
 // Each event once the class has been toggled will change where the points go and
@@ -55,7 +97,7 @@ function inPlayToggleO() {
 tile.addEventListener('click', function (event) {
     if (event.target == tile) {
         alert('you must click tile');
-        console.log('you must click tile');
+        console.log('tile not clicked');
         return;
     }
     if (player_1_turn == document.querySelector('.in_play')) {
@@ -84,7 +126,7 @@ tile.addEventListener('click', function (event) {
         event.target.classList.add('played', 'knot');
         inPlayToggleX();
         inPlayToggleO();
-        console.log('player_2 O');
+        console.log('finished second if statement');
         turns++;
         checkWins();
     }
