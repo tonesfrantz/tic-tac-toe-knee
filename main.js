@@ -8,6 +8,8 @@ let turns = 0;
 const grid = [null, null, null, null, null, null, null, null, null];
 const winX = ['x', 'x', 'x'];
 const winO = ['o', 'o', 'o'];
+const winXString = JSON.stringify(winX);
+const winOString = JSON.stringify(winO);
 
 function checkWins() {
     let firstRow = grid.slice(0, 3);
@@ -47,6 +49,7 @@ function checkWins() {
     console.log(diagTopLeftBotRight);
     let diagTopRightBotLeft = array2.concat(array4, array6);
     console.log(diagTopRightBotLeft);
+    //Strings of all the possibilities. (comparte them to the winX and winO);
 
     let column1String = JSON.stringify(column1);
     console.log(`column1 ${column1String}`);
@@ -70,6 +73,29 @@ function checkWins() {
     console.log(
         `diagonal top right to bottom left ${diagTopRightBotLeftString}`
     );
+
+    if (
+        winXString === column1String ||
+        winXString === column2String ||
+        winXString === column3String ||
+        winXString === firstRowString ||
+        winXString === secondRowString ||
+        winXString === thirdRowString ||
+        winXString === diagTopRightBotLeftString
+    ) {
+        alert(`Congratulations ${player_1}! You got three in a row!`);
+    } else if (
+        winOString === column1String ||
+        winOString === column2String ||
+        winOString === column3String ||
+        winOString === firstRowString ||
+        winOString === secondRowString ||
+        winOString === thirdRowString ||
+        winOString === diagTopLeftBotRightString ||
+        winOString === diagTopRightBotLeftString
+    ) {
+        alert(`Congratulations ${player_2}! You got three in a row!`);
+    }
 }
 
 // create event to change from blank to assigned.

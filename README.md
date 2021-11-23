@@ -21,27 +21,29 @@
 
 -   create click event to change from blank to assigned player.
 
-    -   git commited as "toggle"
+        -   git commited as "toggle"
 
 -   Assign either X or O to player 1 and 2.
 
-    -   git commited as "toggle"
+        -   git commited as "toggle"
 
 -   Keep track of which tile has X or O.
 
-    -   git commited as "toggle"
+        -   git commited as "toggle"
 
 -   stop tile from being clicked twice.
 
-    -   git commited as "toggle"
+        -   git commited as "toggle"
 
 -   compare 3 in a row to compare for a win.
 
         - managed to compare 3 in a row, but a few bugs. Will have to rethink the logic.
-        - git commit "three in a row"
-        - git commit "three in a rowUpdate"
+        - git commit "three in a row":
 
--   End game once winner is reached
+        - git commit "three in a rowUpdate";
+
+-   End game once winner is reached - managed to complete that the game wins. Now need to make sure only one player per tile: - git commit " three in a rowComplete";
+
 -   Reset game.
 
 4. Look at Bonus material
