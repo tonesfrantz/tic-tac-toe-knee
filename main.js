@@ -24,6 +24,21 @@ function reset() {
     document.location.href = '';
 }
 
+function addName(event) {
+    let parent = event.target.parentElement;
+    let playerName = parent.querySelector('.playerName').value;
+    // playerName.style.fontWeight = '700';
+    let name = parent.querySelector('.name');
+    name.textContent = `${playerName} Score:`;
+    // let input = parent.getElementsByTagName('input');
+    // console.log(input);
+
+    // console.log(input);
+    let input = parent.querySelector('input');
+    console.log(input.placeholder);
+    input.value = '';
+}
+
 function checkWins() {
     let firstRow = grid.slice(0, 3);
     console.log(firstRow);

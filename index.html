@@ -16,9 +16,14 @@
     </header>
         <main>
             <div class="curved_box in_play" id="player_1">
-                <input type="text" placeholder="Player 1 name here" />
-                <button>OK</button>
-                <div class="score">Score:</div>
+                <input type="text" class = "playerName" placeholder = "Player 1 name here" />
+                <button class = "okButton" onclick = "addName(event)">OK</button>
+                <div><span class = "name">Score:</span><span class = "score"></span></div>
+            </div>
+            <div class="curved_box" id="player_2">
+                <input type="text" class = "playerName" placeholder = "Player 2 name here" />
+                <button class = "okButton" onclick = "addName(event)">OK</button>
+                <div><span class = "name">Score:</span><span class = "score"></span></div>
             </div>
             <section id = "play_field">
                 
@@ -51,17 +56,13 @@
                     &#10006</div>
                 
             </section>
-            <div class="curved_box" id="player_2">
-                <input type="text" placeholder="Player 2 name here" />
-                <button>OK</button>
-                <div class="score">Score:</div>
-            </div>
+            
         </main>
 
         <script src="main.js"></script>
     </body>
     <footer>
-        <button id = "reset" onclick = "reset()">Reset Game</button>
+        <button id = "reset" onclick = "reset(event)">Reset Game</button>
         &copy; Tony Frantz 2021
         &#10006
         &#129698
