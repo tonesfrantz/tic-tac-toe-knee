@@ -12,22 +12,22 @@
         <header>
         <div class="curved_box" id = "logo">LOGO</div>
         <h1>TIC-TAC-TOE-KNEE</h1>
-        <div class="curved_box" id="winner_score">Display Winner Here</div>
+        <div class="curved_box" id = "winner_score">Winner..?</div>
     </header>
-        <main>
+        <main> 
             <div class="curved_box in_play" id="player_1">
                 <input type="text" class = "playerName" placeholder = "Player 1 name here" />
                 <button class = "okButton" onclick = "addName(event)">OK</button>
-                <div><span class = "name">Score:</span><span class = "score"></span></div>
+                <div><span class = "name"></span>  Score:<span class = "score"></span></div>
             </div>
             <div class="curved_box" id="player_2">
                 <input type="text" class = "playerName" placeholder = "Player 2 name here" />
-                <button class = "okButton" onclick = "addName(event)">OK</button>
-                <div><span class = "name">Score:</span><span class = "score"></span></div>
+                <button class = "okButton" onclick = "addName2(event)">OK</button>
+                <div><span class = "name"></span>  Score:<span class = "score"></span></div>
             </div>
             <section id = "play_field">
                 
-                    <div class="play_box" id = "1">&#10006
+                    <div class="play_box" played = "false" id = "1">&#10006
                     &#129698
                     &#10006</div>
                     <div class="play_box" id ="2">&#10006

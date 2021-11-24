@@ -51,9 +51,12 @@
 
 4. Look at Bonus material
 
--   Add player name and functional button.
+-   Add player name and functional OK button. (complete)
+-   Reset game after 9 clicks even if no winner. (complete)
+-   Display Winner on top right of Screen. (complete)
+-   Once a winner has been assigned. Alert to reset the game.
 -
--   Create multiple game score board
--   Allow option to input time limit.
+-   Create multiple game score board - Keep track of wins... - Display a score of 1 per win and 0 for loss... Keep total tally.
+-   Allow option to input time limit & or No. of Rounds.
 -   Add web audio and API sounds
 -   Add messaging board to display for all users.

@@ -6,14 +6,17 @@ let turns = 0;
 
 //storing the play in this array and then writing function to compare the array for wins.
 const grid = [null, null, null, null, null, null, null, null, null];
+console.log(grid.length);
 const winX = ['x', 'x', 'x'];
 const winO = ['o', 'o', 'o'];
 const winXString = JSON.stringify(winX);
 const winOString = JSON.stringify(winO);
 let tile = document.getElementById('play_field');
+console.log(tile);
+console.log(tile.childNodes);
 let player_1_turn = document.getElementById('player_1');
 let player_2_turn = document.getElementById('player_2');
-const resetButton = document.getElementById('reset');
+// const resetButton = document.getElementById('reset');
 // resetButton.addEventListener('click')
 // console.log(resetButton);
 // // resetButton.addEventListener('click', function reset() {
@@ -27,81 +30,76 @@ function reset() {
 function addName(event) {
     let parent = event.target.parentElement;
     let playerName = parent.querySelector('.playerName').value;
-    // playerName.style.fontWeight = '700';
     let name = parent.querySelector('.name');
-    name.textContent = `${playerName} Score:`;
-    // let input = parent.getElementsByTagName('input');
-    // console.log(input);
-
-    // console.log(input);
+    name.textContent = `${playerName} `;
     let input = parent.querySelector('input');
-    console.log(input.placeholder);
+    player_1 = playerName;
+    console.log(player_1);
+    input.value = '';
+}
+function addName2(event) {
+    let parent = event.target.parentElement;
+    let playerName = parent.querySelector('.playerName').value;
+    let name = parent.querySelector('.name');
+    name.textContent = `${playerName} `;
+    let input = parent.querySelector('input');
+    player_2 = playerName;
+    console.log(player_2);
     input.value = '';
 }
 
 function checkWins() {
     let firstRow = grid.slice(0, 3);
-    console.log(firstRow);
     let secondRow = grid.slice(3, 6);
-    console.log(secondRow);
     let thirdRow = grid.slice(6, 9);
-    console.log(thirdRow);
-
     let array0 = grid.slice(0, 1);
-    console.log(array0);
     let array1 = grid.slice(1, 2);
-    console.log(array1);
     let array2 = grid.slice(2, 3);
-    console.log(array2);
     let array3 = grid.slice(3, 4);
-    console.log(array3);
     let array4 = grid.slice(4, 5);
-    console.log(array4);
     let array5 = grid.slice(5, 6);
-    console.log(array5);
     let array6 = grid.slice(6, 7);
-    console.log(array6);
     let array7 = grid.slice(7, 8);
-    console.log(array7);
     let array8 = grid.slice(8, 9);
-    console.log(array8);
 
     let column1 = array0.concat(array3, array6);
-    console.log(column1);
     let column2 = array1.concat(array4, array7);
-    console.log(column2);
     let column3 = array2.concat(array5, array8);
-    console.log(column3);
 
     let diagTopLeftBotRight = array0.concat(array4, array8);
-    console.log(diagTopLeftBotRight);
     let diagTopRightBotLeft = array2.concat(array4, array6);
-    console.log(diagTopRightBotLeft);
     //Strings of all the possibilities. (comparte them to the winX and winO);
 
     let column1String = JSON.stringify(column1);
-    console.log(`column1 ${column1String}`);
     let column2String = JSON.stringify(column2);
-    console.log(`column2 ${column2String}`);
     let column3String = JSON.stringify(column3);
-    console.log(`column3 ${column3String}`);
 
     let firstRowString = JSON.stringify(firstRow);
-    console.log(`firstRow ${firstRowString}`);
     let secondRowString = JSON.stringify(secondRow);
-    console.log(`secondRow ${secondRowString}`);
     let thirdRowString = JSON.stringify(thirdRow);
-    console.log(`thirdRow ${thirdRowString}`);
 
     let diagTopLeftBotRightString = JSON.stringify(diagTopLeftBotRight);
-    console.log(
-        `diagonal top left to bottom right ${diagTopLeftBotRightString}`
-    );
-    let diagTopRightBotLeftString = JSON.stringify(diagTopRightBotLeft);
-    console.log(
-        `diagonal top right to bottom left ${diagTopRightBotLeftString}`
-    );
 
+    let diagTopRightBotLeftString = JSON.stringify(diagTopRightBotLeft);
+
+    //Trying to make the game end afte all 9 tiles are clicked.... BRAINSTORMING
+
+    //if (all elements in tile.classList.contain("played")){
+    //     Game over
+    // }
+
+    // if (
+    //     (array0 &&
+    //         array1 &&
+    //         array3 &&
+    //         array4 &&
+    //         array5 &&
+    //         array6 &&
+    //         array7 &&
+    //         array8) == ('x' || 'o')
+    // ) {
+    //     console.log('Game Over');
+    // }
     if (
         winXString === column1String ||
         winXString === column2String ||
@@ -112,9 +110,10 @@ function checkWins() {
         winXString === diagTopRightBotLeftString ||
         winXString === diagTopLeftBotRightString
     ) {
-        tile.classList.add('delayed');
-        alert(`Congratulations ${player_1}! You got three in a row!`);
-        document.location.href = '';
+        let winner = document.getElementById('winner_score');
+        winner.classList.add('winner');
+        winner.textContent = player_1;
+        // alert(`Congratulations ${player_1}! You got three in a row!`);
     } else if (
         winOString === column1String ||
         winOString === column2String ||
@@ -125,12 +124,25 @@ function checkWins() {
         winOString === diagTopLeftBotRightString ||
         winOString === diagTopRightBotLeftString
     ) {
-        tile.classList.add('delayed');
-        alert(`Congratulations ${player_2}! You got three in a row!`);
-        document.location.href = '';
+        let winner = document.getElementById('winner_score');
+        winner.classList.add('winner');
+        winner.textContent = player_2;
+        // alert(`Congratulations ${player_2}! You got three in a row!`);
     }
 }
-
+function checkTie() {
+    let played = 0;
+    for (let i = 0; i < tile.children.length; i++) {
+        console.log(tile.children[i]);
+        if (tile.children[i].classList.contains('played')) {
+            played++;
+            console.log(played);
+        }
+    }
+    if (played == 9) {
+        alert('No one Won (some call it a draw!)... Reset and try again');
+    }
+}
 // create event to change from blank to assigned.
 
 // //function to submit name - complete
@@ -168,12 +180,10 @@ tile.addEventListener('click', function (event) {
         console.log(position);
         grid[position - 1] = 'x';
         event.target.textContent = 'X';
+        // event.target.querySelector("played") = "true";
         event.target.classList.add('played', 'cross');
         inPlayToggleX();
         inPlayToggleO();
-        console.log('finished first if Statement');
-        turns++;
-        checkWins();
     }
     // event.target !== document.getElementsByClassName('played' || 'cross')
     else if (player_2_turn == document.querySelector('.in_play')) {
@@ -185,10 +195,12 @@ tile.addEventListener('click', function (event) {
         event.target.classList.add('played', 'knot');
         inPlayToggleX();
         inPlayToggleO();
-        turns++;
-        checkWins();
     }
-
+    console.log('finished first if Statement');
+    turns++;
+    checkWins();
+    checkTie();
     console.log(event.target);
     console.log(grid);
+    console.log(tile.children);
 });
