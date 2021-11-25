@@ -3,6 +3,8 @@ let player_2 = '';
 let player1 = 'X';
 let player2 = 'O';
 let turns = 0;
+let score_1 = 0;
+let score_2 = 0;
 
 //storing the play in this array and then writing function to compare the array for wins.
 const grid = [null, null, null, null, null, null, null, null, null];
@@ -16,12 +18,6 @@ console.log(tile);
 console.log(tile.childNodes);
 let player_1_turn = document.getElementById('player_1');
 let player_2_turn = document.getElementById('player_2');
-// const resetButton = document.getElementById('reset');
-// resetButton.addEventListener('click')
-// console.log(resetButton);
-// // resetButton.addEventListener('click', function reset() {
-// //     console.log('reset clicked');
-// // });
 
 function reset() {
     document.location.href = '';
@@ -34,8 +30,8 @@ function addName(event) {
     name.textContent = `${playerName} `;
     let input = parent.querySelector('input');
     player_1 = playerName;
-    console.log(player_1);
-    input.value = '';
+    input.remove();
+    parent.querySelector('button').style.opacity = '0.2';
 }
 function addName2(event) {
     let parent = event.target.parentElement;
@@ -44,8 +40,8 @@ function addName2(event) {
     name.textContent = `${playerName} `;
     let input = parent.querySelector('input');
     player_2 = playerName;
-    console.log(player_2);
-    input.value = '';
+    input.remove();
+    parent.querySelector('button').style.opacity = '0.2';
 }
 
 function checkWins() {
@@ -68,38 +64,16 @@ function checkWins() {
 
     let diagTopLeftBotRight = array0.concat(array4, array8);
     let diagTopRightBotLeft = array2.concat(array4, array6);
-    //Strings of all the possibilities. (comparte them to the winX and winO);
 
     let column1String = JSON.stringify(column1);
     let column2String = JSON.stringify(column2);
     let column3String = JSON.stringify(column3);
-
     let firstRowString = JSON.stringify(firstRow);
     let secondRowString = JSON.stringify(secondRow);
     let thirdRowString = JSON.stringify(thirdRow);
-
     let diagTopLeftBotRightString = JSON.stringify(diagTopLeftBotRight);
-
     let diagTopRightBotLeftString = JSON.stringify(diagTopRightBotLeft);
 
-    //Trying to make the game end afte all 9 tiles are clicked.... BRAINSTORMING
-
-    //if (all elements in tile.classList.contain("played")){
-    //     Game over
-    // }
-
-    // if (
-    //     (array0 &&
-    //         array1 &&
-    //         array3 &&
-    //         array4 &&
-    //         array5 &&
-    //         array6 &&
-    //         array7 &&
-    //         array8) == ('x' || 'o')
-    // ) {
-    //     console.log('Game Over');
-    // }
     if (
         winXString === column1String ||
         winXString === column2String ||
@@ -126,6 +100,7 @@ function checkWins() {
     ) {
         let winner = document.getElementById('winner_score');
         winner.classList.add('winner');
+        score_2++;
         winner.textContent = player_2;
         // alert(`Congratulations ${player_2}! You got three in a row!`);
     }
@@ -141,6 +116,7 @@ function checkTie() {
     }
     if (played == 9) {
         alert('No one Won (some call it a draw!)... Reset and try again');
+        document.location.href = '';
     }
 }
 // create event to change from blank to assigned.
@@ -180,13 +156,11 @@ tile.addEventListener('click', function (event) {
         console.log(position);
         grid[position - 1] = 'x';
         event.target.textContent = 'X';
-        // event.target.querySelector("played") = "true";
+
         event.target.classList.add('played', 'cross');
         inPlayToggleX();
         inPlayToggleO();
-    }
-    // event.target !== document.getElementsByClassName('played' || 'cross')
-    else if (player_2_turn == document.querySelector('.in_play')) {
+    } else if (player_2_turn == document.querySelector('.in_play')) {
         let position = event.target.getAttribute('Id');
         console.log(position);
         grid[position - 1] = 'o';

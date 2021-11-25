@@ -54,9 +54,22 @@
 -   Add player name and functional OK button. (complete)
 -   Reset game after 9 clicks even if no winner. (complete)
 -   Display Winner on top right of Screen. (complete)
--   Once a winner has been assigned. Alert to reset the game.
--
+-   Once a winner has been assigned. Alert to reset the game. ()
+-   When name loaded make the button and input filed disapear.
 -   Create multiple game score board - Keep track of wins... - Display a score of 1 per win and 0 for loss... Keep total tally.
 -   Allow option to input time limit & or No. of Rounds.
 -   Add web audio and API sounds
 -   Add messaging board to display for all users.
+
+5. Unsolved Problems:
+
+Most of the Dom manipulation was done through "trial and error".
+Problems:
+
+-   add a running score
+-   allow input for time or round/match number limitations
+-   add sound.
+
+I realized half way though that many issues I had were due to the way I had constructed the page and would problably need to re-write to solve.
+
+Still fairly happy considering this is my first ever Game.

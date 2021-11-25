@@ -12,17 +12,20 @@ header {
 }
 #logo {
     position: absolute;
+    font-size: 1.4em;
     top: 2em;
-    left: 1.3em;
+    left: 1em;
+
     border: 10px double rgb(41, 40, 40);
     background-color: rgba(214, 169, 179, 0.5);
-    padding-top: 1.2em;
+    padding-top: 0.6em;
     text-align: center;
 }
 
 #winner_score {
     position: absolute;
-    top: 2em;
+    top: 2.8em;
+
     right: 2em;
     border: 10px double rgb(41, 40, 40);
     background-color: rgba(214, 169, 179, 0.5);
@@ -48,15 +51,15 @@ main {
 /* grid-template: auto 1fr auto / auto 1fr auto;
 } */
 .play_box {
-    width: 5.5em;
-    height: 5.5em;
+    width: 6.5em;
+    height: 6.5em;
     background-color: grey;
     color: honeydew;
     border: 5px solid honeydew;
-    border-radius: 3px;
+    border-radius: 100px;
     text-align: center;
     margin: 1em;
-    line-height: 500%;
+    line-height: 600%;
     /* border-radius: 50px; */
 }
 .curved_box {
@@ -94,9 +97,11 @@ main {
 
 .cross {
     background-color: rgb(61, 191, 243);
+    transition-duration: 3s;
 }
 .knot {
     background-color: pink;
+    transition-duration: 3s;
     color: black;
 }
 .delayed {
