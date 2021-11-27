@@ -61,14 +61,14 @@
 -   Add web audio and API sounds
 -   Add messaging board to display for all users.
 
-5. Unsolved Problems:
+## Unsolved Problems:
 
 Most of the Dom manipulation was done through "trial and error".
 Problems:
 
--   add a running score
--   allow input for time or round/match number limitations
--   add sound.
+-   add a running score elluded me.
+-   allow input for time or round/match number limitations also was a challenge
+-   add sound... definetley didnt make it this far.
 
 I realized half way though that many issues I had were due to the way I had constructed the page and would problably need to re-write to solve.
 

@@ -86,7 +86,11 @@ function checkWins() {
         let winner = document.getElementById('winner_score');
         winner.classList.add('winner');
         winner.textContent = player_1;
-        // alert(`Congratulations ${player_1}! You got three in a row!`);
+        setTimeout(function () {
+            alert(
+                `Congratulations ${player_1}! You got three in a row! Please reset`
+            );
+        }, 1500);
     } else if (
         winOString === column1String ||
         winOString === column2String ||
@@ -101,7 +105,11 @@ function checkWins() {
         winner.classList.add('winner');
         score_2++;
         winner.textContent = player_2;
-        // alert(`Congratulations ${player_2}! You got three in a row!`);
+        setTimeout(function () {
+            alert(
+                `Congratulations ${player_2}! You got three in a row! Please reset`
+            );
+        }, 1500);
     }
 }
 function checkTie() {
@@ -173,5 +181,4 @@ tile.addEventListener('click', function (event) {
     turns++;
     checkWins();
     checkTie();
-    console.log(winOString);
 });
