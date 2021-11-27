@@ -21,16 +21,25 @@ header {
     padding-top: 0.6em;
     text-align: center;
 }
+@keyframes winColor {
+    from {
+        background-color: transparent;
+    }
+    to {
+        background-color: rgb(255, 0, 0);
+    }
+}
 
 #winner_score {
     position: absolute;
     top: 2.8em;
-
     right: 2em;
     border: 10px double rgb(41, 40, 40);
     background-color: rgba(214, 169, 179, 0.5);
     padding: 0.3em;
     padding-top: 1em;
+    animation-name: winColor;
+    animation-duration: 3s;
     text-align: center;
     color: black;
 }
@@ -115,6 +124,7 @@ main {
 .winner {
     background: rgb(247, 109, 247);
     transform: scale(1.2);
+
     color: rgb(252, 244, 245);
 }
 

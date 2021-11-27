@@ -8,14 +8,12 @@ let score_2 = 0;
 
 //storing the play in this array and then writing function to compare the array for wins.
 const grid = [null, null, null, null, null, null, null, null, null];
-console.log(grid.length);
 const winX = ['x', 'x', 'x'];
 const winO = ['o', 'o', 'o'];
 const winXString = JSON.stringify(winX);
 const winOString = JSON.stringify(winO);
 let tile = document.getElementById('play_field');
-console.log(tile);
-console.log(tile.childNodes);
+
 let player_1_turn = document.getElementById('player_1');
 let player_2_turn = document.getElementById('player_2');
 
@@ -70,6 +68,7 @@ function checkWins() {
     let column3String = JSON.stringify(column3);
     let firstRowString = JSON.stringify(firstRow);
     let secondRowString = JSON.stringify(secondRow);
+    console.log(secondRowString);
     let thirdRowString = JSON.stringify(thirdRow);
     let diagTopLeftBotRightString = JSON.stringify(diagTopLeftBotRight);
     let diagTopRightBotLeftString = JSON.stringify(diagTopRightBotLeft);
@@ -174,7 +173,5 @@ tile.addEventListener('click', function (event) {
     turns++;
     checkWins();
     checkTie();
-    console.log(event.target);
-    console.log(grid);
-    console.log(tile.children);
+    console.log(winOString);
 });
